@@ -1,9 +1,10 @@
 import React from 'react';
+import Signup from './components/authentication/Signup';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
-    <h1>Hello World</h1>
+    <Signup />
   );
 }
 
