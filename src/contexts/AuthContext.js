@@ -11,6 +11,7 @@ export function useAuth() {
 // Children are taken into the provider and renders them out
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState();
+  const [loading, setLoading] = useState(true);
 
   function signup(email, password) {
     // Change this if ever needed to sign up to a different server (instead of using Firebase)
@@ -22,6 +23,8 @@ export function AuthProvider({ children }) {
     // Firebase's onAuthStateChanged() has its own way of notifying you when the user's state is first set
     const unsubscribe = auth.onAuthStateChanged(user => {
       setCurrentUser(user)
+      // Due to firebase's authentication parameters, there's an initial loading period while firebase sets up tokens - this results in email's initial value being null
+      setLoading(false)
     })
     // onAuthStateChanged() creates a method that, when called, unsubscribes from the listener whenever component is unmounted
     return unsubscribe
@@ -34,7 +37,7 @@ export function AuthProvider({ children }) {
 
   return (
     <AuthContext.Provider value={value}>
-      {children}
+      {!loading && children}
     </AuthContext.Provider>
   )
 };
