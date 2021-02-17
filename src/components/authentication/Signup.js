@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Form, Button, Card } from 'react-bootstrap';
+import { Form, Button, Card, Alert } from 'react-bootstrap';
 import { useAuth } from '../../contexts/AuthContext';
 
 
@@ -10,16 +10,30 @@ export default function Signup() {
 
   const { signup } = useAuth();
 
+  // Setting loading state so user can't hit button multiple times during creation of account
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault()
 
-    signup(
-      emailRef.current.value, 
-      passwordRef.current.value, 
-      passwordConfirmRef.current.value
-    )
+    // validation check
+    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+      return setError('Password entries must match')
+    }
+
+    try {
+      setError('')
+      setLoading(true)
+      await signup(
+        emailRef.current.value, 
+        passwordRef.current.value, 
+        passwordConfirmRef.current.value
+      )
+    } catch {
+      setError('Unable to create account')
+    }
+    setLoading(false)
   };
 
   return (
@@ -27,7 +41,8 @@ export default function Signup() {
       <Card>
         <Card.Body>
           <h2 className='text-center mb-4'>Sign Up</h2>
-          <Form>
+          {error && <Alert variant='danger'>{error}</Alert>}
+          <Form onSubmit={handleSubmit}>
             <Form.Group id='email'>
               <Form.Label>Email</Form.Label>
               <Form.Control 
