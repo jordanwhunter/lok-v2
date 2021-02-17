@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 const AuthContext = React.createContext();
+
+// Returns context of the AuthContext
+export function useAuth() {
+  return useContext(AuthContext)
+};
 
 // Children are taken into the provider and renders them out
 export function AuthProvider({ children }) {
