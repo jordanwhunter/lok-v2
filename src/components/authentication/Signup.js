@@ -1,4 +1,5 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef } from 'react';
+import { useStateIfMounted } from 'use-state-if-mounted';
 import { Link, useHistory } from 'react-router-dom';
 import { Form, Button, Card, Alert } from 'react-bootstrap';
 import { useAuth } from '../../contexts/AuthContext';
@@ -13,8 +14,8 @@ export default function Signup() {
   const { signup } = useAuth();
 
   // Setting loading state so user can't hit button multiple times during creation of account
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [loading, setLoading] = useStateIfMounted(false);
+  const [error, setError] = useStateIfMounted('');
 
   async function handleSubmit(event) {
     event.preventDefault()
@@ -27,17 +28,23 @@ export default function Signup() {
     try {
       setError('')
       setLoading(true)
+      // setDidMount(true)
       await signup(
         emailRef.current.value, 
         passwordRef.current.value, 
         passwordConfirmRef.current.value
       )
       history.push('/')
+      // return () => setDidMount(false)
     } catch {
       setError('Unable to create account')
     }
     setLoading(false)
   };
+
+  // if (!didMount) {
+  //   return null;
+  // }
 
   return (
     <>

@@ -1,4 +1,5 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef } from 'react';
+import { useStateIfMounted } from 'use-state-if-mounted';
 import { Link, useHistory } from 'react-router-dom';
 import { Form, Button, Card, Alert } from 'react-bootstrap';
 import { useAuth } from '../../contexts/AuthContext';
@@ -13,8 +14,8 @@ export default function UpdateProfile() {
   const { currentUser, updateEmail, updatePassword } = useAuth();
 
   // Setting loading state so user can't hit button multiple times during creation of account
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [loading, setLoading] = useStateIfMounted(false);
+  const [error, setError] = useStateIfMounted('');
 
   function handleSubmit(event) {
     event.preventDefault()

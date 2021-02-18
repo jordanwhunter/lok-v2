@@ -1,4 +1,5 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef } from 'react';
+import { useStateIfMounted } from 'use-state-if-mounted';
 import { Link } from 'react-router-dom';
 import { Form, Button, Card, Alert } from 'react-bootstrap';
 import { useAuth } from '../../contexts/AuthContext';
@@ -10,9 +11,9 @@ export default function ForgotPassword() {
   const { resetPassword } = useAuth();
 
   // Setting loading state so user can't hit button multiple times during creation of account
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
-  const [message, setMessage] = useState('');
+  const [loading, setLoading] = useStateIfMounted(false);
+  const [error, setError] = useStateIfMounted('');
+  const [message, setMessage] = useStateIfMounted('');
 
   async function handleSubmit(event) {
     event.preventDefault()

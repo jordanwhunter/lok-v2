@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useStateIfMounted } from 'use-state-if-mounted';
 import { Link, useHistory } from 'react-router-dom';
 import { Card, Button, Alert } from 'react-bootstrap';
 import { useAuth } from '../../contexts/AuthContext';
@@ -6,7 +7,7 @@ import { useAuth } from '../../contexts/AuthContext';
 export default function Dashboard() {
   const history = useHistory();
   
-  const [error, setError] = useState('');
+  const [error, setError] = useStateIfMounted('');
 
   const { currentUser, logout } = useAuth();
 
