@@ -27,6 +27,10 @@ export function AuthProvider({ children }) {
     return auth.signOut()
   };
 
+  function resetPassword(email) {
+    return auth.sendPasswordResetEmail(email)
+  };
+
   // We don't want this in our render, we only want to run this when we mount the component
   useEffect(() => {
     // Firebase's onAuthStateChanged() has its own way of notifying you when the user's state is first set
@@ -43,7 +47,8 @@ export function AuthProvider({ children }) {
     currentUser,
     login,
     signup,
-    logout
+    logout,
+    resetPassword
   };
 
   return (
