@@ -5,6 +5,7 @@ import { AuthProvider } from './contexts/AuthContext';
 import Dashboard from './components/authentication/Dashboard';
 import Signup from './components/authentication/Signup';
 import Login from './components/authentication/Login';
+import PrivateRoute from './components/authentication/PrivateRoute';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
           <Router>
             <AuthProvider>
               <Switch>
-                <Route exact path='/' component={Dashboard} />
+                <PrivateRoute exact path='/' component={Dashboard} />
                 <Route path='/signup' component={Signup} />
                 <Route path='/login' component={Login} />
               </Switch>
