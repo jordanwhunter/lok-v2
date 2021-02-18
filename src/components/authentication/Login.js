@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { Form, Button, Card, Alert } from 'react-bootstrap';
 import { useAuth } from '../../contexts/AuthContext';
 
@@ -7,6 +7,7 @@ import { useAuth } from '../../contexts/AuthContext';
 export default function Login() {
   const emailRef = useRef();
   const passwordRef = useRef();
+  const history = useHistory();
 
   const { login } = useAuth();
 
@@ -24,6 +25,7 @@ export default function Login() {
         emailRef.current.value, 
         passwordRef.current.value
       )
+      history.push('/')
     } catch {
       setError('Cannot log in')
     }

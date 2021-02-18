@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { Form, Button, Card, Alert } from 'react-bootstrap';
 import { useAuth } from '../../contexts/AuthContext';
 
@@ -8,6 +8,7 @@ export default function Signup() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
+  const history = useHistory();
 
   const { signup } = useAuth();
 
@@ -31,6 +32,7 @@ export default function Signup() {
         passwordRef.current.value, 
         passwordConfirmRef.current.value
       )
+      history.push('/')
     } catch {
       setError('Unable to create account')
     }
