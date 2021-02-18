@@ -1,9 +1,66 @@
-import React from 'react'
+import React, { useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
+import { Form, Button, Card, Alert } from 'react-bootstrap';
+import { useAuth } from '../../contexts/AuthContext';
+
 
 export default function ForgotPassword() {
+  const emailRef = useRef();
+
+  const { resetPassword } = useAuth();
+
+  // Setting loading state so user can't hit button multiple times during creation of account
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [message, setMessage] = useState('');
+
+  async function handleSubmit(event) {
+    event.preventDefault()
+
+    try {
+      setMessage('')
+      setError('')
+      setLoading(true)
+      await resetPassword(emailRef.current.value)
+      setMessage('Success - check your inbox')
+    } catch {
+      setError('Email not registered')
+    }
+    setLoading(false)
+  };
+
   return (
-    <div>
-      Hello world. Reset your password.
-    </div>
+    <>
+      <Card>
+        <Card.Body>
+          <h2 className='text-center mb-4'>Reset Password</h2>
+          {message && <Alert variant='success'>{message}</Alert>}
+          {error && <Alert variant='danger'>{error}</Alert>}
+          <Form onSubmit={handleSubmit}>
+            <Form.Group id='email'>
+              <Form.Label>Email</Form.Label>
+              <Form.Control 
+                type='email' 
+                ref={emailRef} 
+                required 
+              />
+            </Form.Group>
+            <Button 
+              disabled={loading} 
+              className='w-100' 
+              type='submit'
+            >
+              Send Instructions
+            </Button>
+          </Form>
+          <div className='w-100 text-center mt-3'>
+            <Link to='/login'>Log In</Link>
+          </div>
+        </Card.Body>
+      </Card>
+      <div className='w-100 text-center mt-2'>
+        Don't have an account? <Link to='/signup'>Sign Up</Link>
+      </div>
+    </>
   )
 };
