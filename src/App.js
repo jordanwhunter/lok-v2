@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import { AuthProvider } from './contexts/AuthContext';
+import Dashboard from './components/authentication/Dashboard';
 import Signup from './components/authentication/Signup';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -18,6 +19,7 @@ function App() {
           <Router>
             <AuthProvider>
               <Switch>
+                <Route exact path='/' component={Dashboard} />
                 <Route path='/signup' component={Signup} />
               </Switch>
             </AuthProvider>
