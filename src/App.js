@@ -4,6 +4,7 @@ import { Container } from 'react-bootstrap';
 import { AuthProvider } from './contexts/AuthContext';
 import Dashboard from './components/authentication/Dashboard';
 import Signup from './components/authentication/Signup';
+import Login from './components/authentication/Login';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
               <Switch>
                 <Route exact path='/' component={Dashboard} />
                 <Route path='/signup' component={Signup} />
+                <Route path='/login' component={Login} />
               </Switch>
             </AuthProvider>
           </Router>
