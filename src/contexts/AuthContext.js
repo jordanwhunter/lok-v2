@@ -18,6 +18,11 @@ export function AuthProvider({ children }) {
     return auth.createUserWithEmailAndPassword(email, password)
   };
 
+  function login(email, password) {
+    // Change this if ever needed to log into a different server (instead of using Firebase)
+    return auth.signInWithEmailAndPassword(email, password)
+  }
+
   // We don't want this in our render, we only want to run this when we mount the component
   useEffect(() => {
     // Firebase's onAuthStateChanged() has its own way of notifying you when the user's state is first set
@@ -32,6 +37,7 @@ export function AuthProvider({ children }) {
 
   const value = {
     currentUser,
+    login,
     signup
   };
 
