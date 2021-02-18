@@ -10,33 +10,37 @@ export default function UpdateProfile() {
   const passwordConfirmRef = useRef();
   const history = useHistory();
 
-  const { currentUser } = useAuth();
+  const { currentUser, updateEmail, updatePassword } = useAuth();
 
   // Setting loading state so user can't hit button multiple times during creation of account
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  async function handleSubmit(event) {
-    // event.preventDefault()
+  function handleSubmit(event) {
+    event.preventDefault()
 
-    // // validation check
-    // if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-    //   return setError('Password entries must match')
-    // }
+    // validation check
+    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+      return setError('Password entries must match')
+    }
 
-    // try {
-    //   setError('')
-    //   setLoading(true)
-    //   await signup(
-    //     emailRef.current.value, 
-    //     passwordRef.current.value, 
-    //     passwordConfirmRef.current.value
-    //   )
-    //   history.push('/')
-    // } catch {
-    //   setError('Unable to create account')
-    // }
-    // setLoading(false)
+    const promises = []
+    setLoading(true)
+    setError('')
+    if (emailRef.current.value !== currentUser.email) {
+      promises.push(updateEmail(emailRef.current.value))
+    }
+    if (passwordRef.current.value) {
+      promises.push(updatePassword(passwordRef.current.value))
+    }
+
+    Promise.all(promises).then(() => {
+      history.push('/')
+    }).catch(() => {
+      setError('Unable to update')
+    }).finally(() => {
+      setLoading(false)
+    })
   };
 
   return (
@@ -59,8 +63,7 @@ export default function UpdateProfile() {
               <Form.Label>Password</Form.Label>
               <Form.Control 
                 type='password' 
-                ref={passwordRef} 
-                required
+                ref={passwordRef}
                 placeholder='Leave blank to keep the same'
               />
             </Form.Group>
@@ -68,8 +71,7 @@ export default function UpdateProfile() {
               <Form.Label>Password Confirmation</Form.Label>
               <Form.Control 
                 type='password' 
-                ref={passwordConfirmRef} 
-                required
+                ref={passwordConfirmRef}
                 placeholder='Leave blank to keep the same'
               />
             </Form.Group>
