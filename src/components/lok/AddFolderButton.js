@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
+import { db } from '../../firebase';
 
 import CreateNewFolderIcon from '@material-ui/icons/CreateNewFolder';
 
@@ -19,6 +20,9 @@ export default function AddFolderButton() {
     e.preventDefault()
 
     // Create folder within the database
+    db.folders.add({
+      name: name,
+    })
     setName('')
     closeModal()
   };
