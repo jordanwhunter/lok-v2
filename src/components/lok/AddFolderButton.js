@@ -7,8 +7,12 @@ export default function AddFolderButton() {
   };
   
   return (
-    <Button onClick={openModal}>
-      
+    <Button 
+      onClick={openModal}
+      variant='outline-success'
+      size='sm'
+    >
+      Test Text
     </Button>
   )
 };
