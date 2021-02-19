@@ -29,23 +29,17 @@ export default function Signup() {
     try {
       setError('')
       setLoading(true)
-      // setDidMount(true)
       await signup(
         emailRef.current.value, 
         passwordRef.current.value, 
         passwordConfirmRef.current.value
       )
       history.push('/')
-      // return () => setDidMount(false)
     } catch {
       setError('Unable to create account')
     }
     setLoading(false)
   };
-
-  // if (!didMount) {
-  //   return null;
-  // }
 
   return (
     <CenteredContainer>
