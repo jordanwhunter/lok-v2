@@ -3,6 +3,7 @@ import { useStateIfMounted } from 'use-state-if-mounted';
 import { Link, useHistory } from 'react-router-dom';
 import { Form, Button, Card, Alert } from 'react-bootstrap';
 import { useAuth } from '../../contexts/AuthContext';
+import CenteredContainer from './CenteredContainer';
 
 
 export default function UpdateProfile() {
@@ -45,7 +46,7 @@ export default function UpdateProfile() {
   };
 
   return (
-    <>
+    <CenteredContainer>
       <Card>
         <Card.Body>
           <h2 className='text-center mb-4'>Update Profile</h2>
@@ -89,7 +90,7 @@ export default function UpdateProfile() {
       <div className='w-100 text-center mt-2'>
         <Link to='/'>Cancel</Link>
       </div>
-    </>
+    </CenteredContainer>
   )
 };
 

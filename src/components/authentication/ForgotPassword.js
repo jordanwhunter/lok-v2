@@ -3,6 +3,7 @@ import { useStateIfMounted } from 'use-state-if-mounted';
 import { Link } from 'react-router-dom';
 import { Form, Button, Card, Alert } from 'react-bootstrap';
 import { useAuth } from '../../contexts/AuthContext';
+import CenterContainer from '../authentication/CenteredContainer';
 
 
 export default function ForgotPassword() {
@@ -31,7 +32,7 @@ export default function ForgotPassword() {
   };
 
   return (
-    <>
+    <CenterContainer>
       <Card>
         <Card.Body>
           <h2 className='text-center mb-4'>Reset Password</h2>
@@ -62,6 +63,6 @@ export default function ForgotPassword() {
       <div className='w-100 text-center mt-2'>
         Don't have an account? <Link to='/signup'>Sign Up</Link>
       </div>
-    </>
+    </CenterContainer>
   )
 };

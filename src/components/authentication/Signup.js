@@ -3,6 +3,7 @@ import { useStateIfMounted } from 'use-state-if-mounted';
 import { Link, useHistory } from 'react-router-dom';
 import { Form, Button, Card, Alert } from 'react-bootstrap';
 import { useAuth } from '../../contexts/AuthContext';
+import CenteredContainer from '../authentication/CenteredContainer';
 
 
 export default function Signup() {
@@ -47,7 +48,7 @@ export default function Signup() {
   // }
 
   return (
-    <>
+    <CenteredContainer>
       <Card>
         <Card.Body>
           <h2 className='text-center mb-4'>Sign Up</h2>
@@ -90,6 +91,6 @@ export default function Signup() {
       <div className='w-100 text-center mt-2'>
         Already have an account? <Link to='/login'>Log In</Link>
       </div>
-    </>
+    </CenteredContainer>
   )
 };
