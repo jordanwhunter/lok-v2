@@ -1,6 +1,8 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 
+import CreateNewFolderIcon from '@material-ui/icons/CreateNewFolder';
+
 export default function AddFolderButton() {
   function openModal() {
 
@@ -12,7 +14,7 @@ export default function AddFolderButton() {
       variant='outline-success'
       size='sm'
     >
-      Test Text
+      <CreateNewFolderIcon />
     </Button>
   )
 };
