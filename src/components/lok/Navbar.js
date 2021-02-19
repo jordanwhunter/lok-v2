@@ -1,22 +1,23 @@
 import React from 'react';
 import { Navbar as Navstrap, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-// import Lok from '../../media/favicon.png';
+
+import LockTwoToneIcon from '@material-ui/icons/LockTwoTone';
 
 export default function NavbarComponet() {
   return (
     <Navstrap bg='light' expand='sm' > 
       <Navstrap.Brand as={Link} to='/'>
-          {/* <img 
-            src={Lok} 
-            alt='Lok Icon'
-            style={{ maxWidth: '4%' }}
-          /> */}
-          <span>Lok</span>
+        <LockTwoToneIcon />
+        <h6 className='d-inline'>
+          Lok
+        </h6>
       </Navstrap.Brand>
       <Nav>
         <Nav.Link as={Link} to='/user' >
-          Profile
+          <h6 className='d-inline'>
+            Profile
+          </h6>
         </Nav.Link>
       </Nav>
     </Navstrap>
