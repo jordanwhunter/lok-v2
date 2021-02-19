@@ -36,12 +36,13 @@ export default function Profile() {
         </Card.Body>
       </Card>
       <div className='w-100 text-center mt-2'>
-          <Button 
-            variant='link' 
-            onClick={handleLogout}
-          >
-            Log Out
-          </Button>
+        <Link to='/'>To Dashboard</Link><br/>
+        <Button 
+          variant='link' 
+          onClick={handleLogout}
+        >
+          Log Out
+        </Button>
       </div>
     </CenteredContainer>
   )
