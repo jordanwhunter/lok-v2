@@ -7,6 +7,7 @@ import Login from './components/authentication/Login';
 import PrivateRoute from './components/authentication/PrivateRoute';
 import ForgotPassword from './components/authentication/ForgotPassword';
 import UpdateProfile from './components/authentication/UpdateProfile';
+import Dashboard from './components/lok/Dashboard';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
       <AuthProvider>
         <Switch>
           {/* Lok Routes */}
-
+          <PrivateRoute exact path='/' component={Dashboard} />
 
           {/* User Profile Routes */}
           <PrivateRoute path='/user' component={Profile} />
