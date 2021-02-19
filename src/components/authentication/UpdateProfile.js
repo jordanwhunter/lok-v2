@@ -37,7 +37,7 @@ export default function UpdateProfile() {
     }
 
     Promise.all(promises).then(() => {
-      history.push('/')
+      history.push('/user')
     }).catch(() => {
       setError('Unable to update')
     }).finally(() => {
@@ -88,7 +88,7 @@ export default function UpdateProfile() {
         </Card.Body>
       </Card>
       <div className='w-100 text-center mt-2'>
-        <Link to='/'>Cancel</Link>
+        <Link to='/user'>Cancel</Link>
       </div>
     </CenteredContainer>
   )
