@@ -5,7 +5,7 @@ import { useAuth } from '../../contexts/AuthContext';
 
 import CreateNewFolderIcon from '@material-ui/icons/CreateNewFolder';
 
-export default function AddFolderButton(currentFolder) {
+export default function AddFolderButton({ currentFolder }) {
   const [open, setOpen] = useState(false);
   const [name, setName] = useState('');
 
@@ -22,7 +22,7 @@ export default function AddFolderButton(currentFolder) {
   function handleSubmit(e) {
     e.preventDefault()
 
-    if (currentFolder === null) return
+    if (currentFolder == null) return
 
     // Create folder within the database
     db.folders.add({
