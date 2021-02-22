@@ -19,7 +19,8 @@ export const auth = app.auth()
 // limiting what user has access to within the firestore
 export const db = {
   folders: firestore.collection('folders'),
-  files: firestore.collection('files')
+  files: firestore.collection('files'),
+  getCurrentTimeStamp: firebase.firestore.FieldValue.serverTimestamp,
 }
 
 export default app
