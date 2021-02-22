@@ -17,6 +17,7 @@ function App() {
         <Switch>
           {/* Lok Routes */}
           <PrivateRoute exact path='/' component={Dashboard} />
+          <PrivateRoute exact path='/folder/:folderId' component={Dashboard} />
 
           {/* User Profile Routes */}
           <PrivateRoute path='/user' component={Profile} />
