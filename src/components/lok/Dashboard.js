@@ -6,6 +6,7 @@ import AddFolderButton from './AddFolderButton';
 
 export default function Dashboard() {
   const { folder } = useFolder();
+  // console.log(folder)
   
   return (
     <>
