@@ -6,7 +6,7 @@ import AddFolderButton from './AddFolderButton';
 import Folder from './Folder';
 
 export default function Dashboard() {
-  const { folder } = useFolder();
+  const { folder, childFolders } = useFolder();
   // console.log(folder)
   
   return (
@@ -14,7 +14,19 @@ export default function Dashboard() {
       <Navbar />
       <Container fluid>
         <AddFolderButton currentFolder={folder} />
-        {folder && <Folder folder={folder}/>}
+        {childFolders.length > 0 && (
+          <div className='d-flex flex-wrap'>
+            {childFolders.map(childFolder => (
+              <div 
+                key={folder.id}
+                style={{ madWidth: '250px' }}
+                className='p-2'
+              >
+                <Folder folder={childFolder} />
+              </div>
+            ))}
+          </div>
+        )}
       </Container>
     </>
   )
