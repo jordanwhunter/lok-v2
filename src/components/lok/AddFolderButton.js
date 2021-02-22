@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
 import { db } from '../../firebase';
 import { useAuth } from '../../contexts/AuthContext';
+import { ROOT_FOLDER } from '../../hooks/useFolder';
 
 import CreateNewFolderIcon from '@material-ui/icons/CreateNewFolder';
 
@@ -23,6 +24,11 @@ export default function AddFolderButton({ currentFolder }) {
     e.preventDefault()
 
     if (currentFolder == null) return
+
+    const path = [...currentFolder.path]
+    if (currentFolder !== ROOT_FOLDER) {
+      path.push({ name: currentFolder.name, id: currentFolder.id })
+    }
 
     // Create folder within the database
     db.folders.add({
