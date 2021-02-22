@@ -35,7 +35,7 @@ export default function AddFolderButton({ currentFolder }) {
       name: name,
       parentId: currentFolder.id,
       userId: currentUser.uid,
-      // path,
+      path: path,
       createdAt: db.getCurrentTimeStamp(),
     })
     setName('')
