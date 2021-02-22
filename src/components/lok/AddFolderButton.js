@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
 import { db } from '../../firebase';
+import { useAuth } from '../../contexts/AuthContext';
 
 import CreateNewFolderIcon from '@material-ui/icons/CreateNewFolder';
 
 export default function AddFolderButton() {
   const [open, setOpen] = useState(false);
   const [name, setName] = useState('');
+
+  const { currentUser } = useAuth();
   
   function openModal() {
     setOpen(true)
@@ -22,6 +25,10 @@ export default function AddFolderButton() {
     // Create folder within the database
     db.folders.add({
       name: name,
+      // parentId,
+      userId: currentUser.uid,
+      // path,
+      // createdAt
     })
     setName('')
     closeModal()
