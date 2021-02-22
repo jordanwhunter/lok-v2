@@ -1,9 +1,9 @@
 import React from 'react';
 
-export default function Folder() {
+export default function Folder({ folder }) {
   return (
     <div>
-      Hello world. I'm an individual Folder component.
+      {folder.name}
     </div>
   )
 };
