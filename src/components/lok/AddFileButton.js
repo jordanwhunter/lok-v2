@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAuth } from '../../contexts/AuthContext';
-import { storage } from '../../firebase';
+import { storage, db } from '../../firebase';
 import { ROOT_FOLDER } from '../../hooks/useFolder';
 
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
@@ -35,11 +35,16 @@ export default function AddFileButton({ currentFolder }) {
       () => {},
       // 3) function that occurs after upload has completed:
       () => {
-        uploadTask.snapshot.ref
-          .getDownloadURL()
-          .then(url => {
-            console.log(url)
+        uploadTask.snapshot.ref.getDownloadURL().then(url => {
+          // add uploaded file as object to database
+          db.files.add({
+            url: url,
+            name: file.name,
+            createdAt: db.getCurrentTimeStamp(),
+            folderId: currentFolder.id,
+            userId: currentUser.uid
           })
+        })
       }
     )
   };
