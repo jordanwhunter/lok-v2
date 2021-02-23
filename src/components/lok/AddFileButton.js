@@ -26,15 +26,16 @@ export default function AddFileButton({ currentFolder }) {
       .ref(`/files/${currentUser.uid}/${filePath}`)
       .put(file)
 
-    uploadTask.on('state_changed', snapshot => {
-
-    }, () => {
-
-    }, () => {
-
-    }, () => {
-      
-    })
+    // need information not only stored in firebase storage, but also the database. the state_changed event determines when state is changing, as well as when upload is complete (and if there are any errors). it takes 3 different functions: 
+    uploadTask.on(
+      'state_changed', 
+      // 1) function called repeatedly telling progress of upload:
+      snapshot => {},
+      // 2) function that tells what happens on error:
+      () => {},
+      // 3) function that occurs after upload has completed:
+      () => {}
+    )
   };
   
   return (
