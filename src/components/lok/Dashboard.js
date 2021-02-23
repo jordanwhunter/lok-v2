@@ -46,7 +46,7 @@ export default function Dashboard() {
                 style={{ maxWidth: '150px' }}
                 className='p-2'
               >
-                <File folder={childFile} />
+                <File file={childFile} />
               </div>
             ))}
           </div>

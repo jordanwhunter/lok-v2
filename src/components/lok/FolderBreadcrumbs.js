@@ -5,7 +5,7 @@ import { ROOT_FOLDER } from '../../hooks/useFolder';
 
 export default function FolderBreadcrumbs({ currentFolder }) {
   let path = currentFolder === ROOT_FOLDER ? [] : [ROOT_FOLDER]
-  console.log(currentFolder)
+  // console.log(currentFolder)
   if (currentFolder) path = [...path, ...currentFolder.path]
 
   return (
