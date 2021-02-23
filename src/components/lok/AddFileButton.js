@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
+import { v4 as uuidV4 } from 'uuid';
+import { Toast, ProgressBar } from 'react-bootstrap';
 import { useAuth } from '../../contexts/AuthContext';
 import { storage, db } from '../../firebase';
 import { ROOT_FOLDER } from '../../hooks/useFolder';
@@ -6,12 +9,27 @@ import { ROOT_FOLDER } from '../../hooks/useFolder';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 
 export default function AddFileButton({ currentFolder }) {
+  const [uploadingFiles, setUploadingFiles] = useState([]);
+  
   const { currentUser } = useAuth();
   
   function handleUpload(event) {
     const file = event.target.files[0]
     if (currentFolder == null || file == null ) return
     
+    const id = uuidV4();
+
+    // setting progress for files being uploaded in the moment
+    setUploadingFiles(prevUploadingFiles => [
+      ...prevUploadingFiles,
+      { 
+        id: id,
+        name: file.name,
+        progress: 0,
+        error: false
+      }
+    ])
+
     // take the names of folders and concatenate them so file path has folders in it
     const filePath =
       // if in the root folder...
@@ -50,18 +68,65 @@ export default function AddFileButton({ currentFolder }) {
   };
   
   return (
-    <label className='btn btn-outline-success btn-sm m-0 mr-2'>
-      <CloudUploadIcon />
-      {/* hiding input with styles */}
-      <input 
-        type='file'
-        onChange={handleUpload}
-        style={{
-          opacity: 0,
-          position: 'absolute',
-          left: '-9999px'
-        }} 
-      />
-    </label>
+    <>
+      <label className='btn btn-outline-success btn-sm m-0 mr-2'>
+        <CloudUploadIcon />
+        {/* hiding input with styles */}
+        <input 
+          type='file'
+          onChange={handleUpload}
+          style={{
+            opacity: 0,
+            position: 'absolute',
+            left: '-9999px'
+          }} 
+        />
+      </label>
+      
+      {/* uploading progress displayed in portal*/}
+      {
+        uploadingFiles.length > 0 
+        && ReactDOM.createPortal(
+          <div
+            style={{
+              position: 'absolute',
+              bottom: '1rem',
+              right: '1rem',
+              maxWidth: '250px'
+            }}
+          >
+            {uploadingFiles.map(file => (
+              <Toast key={file.id}>
+                <Toast.Header 
+                  closeButton={file.error}
+                  className='text-truncate w-100 d-block'
+                >
+                  {file.name}
+                </Toast.Header>
+                <Toast.Body>
+                  <ProgressBar
+                    animated={!file.error}
+                    variant={
+                      file.error 
+                        ? 'danger' 
+                        : 'primary'
+                    }
+                    label={
+                      file.error 
+                        ? 'Error' 
+                        : `${Math.round(file.progress * 100)}%`
+                    }
+                    // determines where in progress we are (progress outputs as decimal so must multiply by 100)
+                    now={file.error ? 100 : file.progress * 100}
+                  />
+                </Toast.Body>
+              </Toast>
+            ))}
+          </div>,
+          // ReactDOM.createPortal() takes a second property: where portal will be rendered
+          document.body
+        )
+      }
+    </>
   )
 };
