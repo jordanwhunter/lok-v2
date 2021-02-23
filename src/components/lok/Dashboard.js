@@ -7,11 +7,12 @@ import AddFolderButton from './AddFolderButton';
 import AddFileButton from './AddFileButton';
 import Folder from './Folder';
 import FolderBreadcrumbs from './FolderBreadcrumbs';
+import File from './File';
 
 export default function Dashboard() {
   const { folderId } = useParams();
   const { state = {} } = useLocation();
-  const { folder, childFolders } = useFolder(folderId, state.folder);
+  const { folder, childFolders, childFiles } = useFolder(folderId, state.folder);
   // console.log(folder)
   
   return (
@@ -32,6 +33,20 @@ export default function Dashboard() {
                 className='p-2'
               >
                 <Folder folder={childFolder} />
+              </div>
+            ))}
+          </div>
+        )}
+        {childFolders.length > 0 && childFiles.length > 0 && <hr />}
+        {childFiles.length > 0 && (
+          <div className='d-flex flex-wrap'>
+            {childFiles.map(childFile => (
+              <div 
+                key={childFile.id}
+                style={{ maxWidth: '150px' }}
+                className='p-2'
+              >
+                <File folder={childFile} />
               </div>
             ))}
           </div>
