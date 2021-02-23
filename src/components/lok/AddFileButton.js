@@ -34,7 +34,13 @@ export default function AddFileButton({ currentFolder }) {
       // 2) function that tells what happens on error:
       () => {},
       // 3) function that occurs after upload has completed:
-      () => {}
+      () => {
+        uploadTask.snapshot.ref
+          .getDownloadURL()
+          .then(url => {
+            console.log(url)
+          })
+      }
     )
   };
   
