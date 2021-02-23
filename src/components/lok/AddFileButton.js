@@ -1,9 +1,24 @@
 import React from 'react';
 
-export default function AddFileButton() {
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+
+export default function AddFileButton({ currentFolder }) {
+  function handleUpload(event) {
+
+  };
+  
   return (
-    <div>
-      Hello world. I'm a component for adding files to our database.
-    </div>
+    <label className='btn btn-outline-success btn-sm m-0 mr-2'>
+      <CloudUploadIcon />
+      <input 
+        type='file'
+        onChange={handleUpload}
+        style={{
+          opacity: 0,
+          position: 'absolute',
+          left: '-9999px'
+        }} 
+      />
+    </label>
   )
 };
