@@ -48,9 +48,22 @@ export default function AddFileButton({ currentFolder }) {
     uploadTask.on(
       'state_changed', 
       // 1) function called repeatedly telling progress of upload:
-      snapshot => {},
+      snapshot => {
+        const progress = snapshot.bytesTransferred / snapshot.totalBytes;
+
+        setUploadingFiles(prevUploadingFiles => {
+          return prevUploadingFiles.map(uploadFile => {
+            if (uploadFile.id === id) {
+              return { ...uploadFile, progress: progress }
+            }
+            return uploadFile
+          })
+        })
+      },
+
       // 2) function that tells what happens on error:
       () => {},
+      
       // 3) function that occurs after upload has completed:
       () => {
         uploadTask.snapshot.ref.getDownloadURL().then(url => {
