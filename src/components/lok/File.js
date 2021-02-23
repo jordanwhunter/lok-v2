@@ -1,9 +1,17 @@
 import React from 'react';
 
-export default function File() {
+import InsertDriveFileIcon from '@material-ui/icons/InsertDriveFile';
+
+export default function File({ file }) {
   return (
-    <div>
-      Hello world. I am the File component.
-    </div>
+    <a 
+      href={file.url} 
+      className='btn btn-outline-dark text-truncate w-100'
+      target='_blank' 
+      rel='noreferrer' 
+    >
+      <InsertDriveFileIcon className='mr-2' />
+      {file.name}
+    </a>
   )
 };
