@@ -89,14 +89,26 @@ export default function AddFileButton({ currentFolder }) {
         });
 
         uploadTask.snapshot.ref.getDownloadURL().then(url => {
-          // add uploaded file as object to database
-          db.files.add({
-            url: url,
-            name: file.name,
-            createdAt: db.getCurrentTimeStamp(),
-            folderId: currentFolder.id,
-            userId: currentUser.uid
-          })
+          db.files
+            .where('name', '==', file.name)
+            .where('userId', '==', currentUser.uid)
+            .where('folderId', '==', currentFolder.id)
+            .get()
+            .then(existingFiles => {
+              const existingFile = existingFiles.docs[0]
+              if (existingFile) {
+                existingFile.ref.update({ url: url })
+              } else {
+                // add uploaded file as object to database
+                db.files.add({
+                  url: url,
+                  name: file.name,
+                  createdAt: db.getCurrentTimeStamp(),
+                  folderId: currentFolder.id,
+                  userId: currentUser.uid
+                })
+              }
+            })
         });
       }
     )
