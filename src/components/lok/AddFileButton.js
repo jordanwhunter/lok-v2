@@ -58,7 +58,7 @@ export default function AddFileButton({ currentFolder }) {
             }
             return uploadFile
           })
-        })
+        });
       },
 
       // 2) function that tells what happens on error:
@@ -66,6 +66,13 @@ export default function AddFileButton({ currentFolder }) {
       
       // 3) function that occurs after upload has completed:
       () => {
+        // filter through prevUploadingFiles and filter the one that matches current id for saving
+        setUploadingFiles(prevUploadingFiles => {
+          return prevUploadingFiles.filter(uploadFile => {
+            return uploadFile.id !== id
+          })
+        });
+
         uploadTask.snapshot.ref.getDownloadURL().then(url => {
           // add uploaded file as object to database
           db.files.add({
@@ -75,7 +82,7 @@ export default function AddFileButton({ currentFolder }) {
             folderId: currentFolder.id,
             userId: currentUser.uid
           })
-        })
+        });
       }
     )
   };
