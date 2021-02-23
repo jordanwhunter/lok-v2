@@ -28,7 +28,7 @@ export default function AddFileButton({ currentFolder }) {
         progress: 0,
         error: false
       }
-    ])
+    ]);
 
     // take the names of folders and concatenate them so file path has folders in it
     const filePath =
@@ -54,7 +54,10 @@ export default function AddFileButton({ currentFolder }) {
         setUploadingFiles(prevUploadingFiles => {
           return prevUploadingFiles.map(uploadFile => {
             if (uploadFile.id === id) {
-              return { ...uploadFile, progress: progress }
+              return { 
+                ...uploadFile, 
+                progress: progress 
+              }
             }
             return uploadFile
           })
@@ -62,7 +65,19 @@ export default function AddFileButton({ currentFolder }) {
       },
 
       // 2) function that tells what happens on error:
-      () => {},
+      () => {
+        setUploadingFiles(prevUploadingFiles => {
+          return prevUploadingFiles.map(uploadFile => {
+            if (uploadFile.id === id) {
+              return { 
+                ...uploadFile, 
+                error: true
+              }
+            }
+            return uploadFile
+          })
+        });
+      },
       
       // 3) function that occurs after upload has completed:
       () => {
