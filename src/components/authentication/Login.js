@@ -73,6 +73,9 @@ export default function Login() {
       <div className='w-100 text-center mt-2'>
         Don't have an account? <Link to='/signup'>Sign Up</Link>
       </div>
+      <div className='w-100 text-center mt-2'>
+        <Link to='/terms-of-service' target='_blank'>Terms and Conditions</Link>
+      </div>
     </CenteredContainer>
   )
 };
