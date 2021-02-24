@@ -34,7 +34,7 @@ export default function PrivacyPolicy() {
           <i>Account information</i>. We collect, and associate with your account, the email address you provide when you sign up for your account.
           <br /><br />
 
-          <i>Your Things</i>. Our service is designed as a simple and personalized way for you to store your files, documents, photos, comments, messages and so on ("<strong>Your Things</strong>"). To make that possible, we store, process, and transmit Your Things as well as information related to it. This related information includes your <Link to='/update-profile' target='_blank'>profile information</Link> that makes it easier to collaborate and share Your Stuff with others, as well as things like the size of the file, the time it was uploaded, collaborators, and usage activity.
+          <i>Your Things</i>. Our service is designed as a simple and personalized way for you to store your files, documents, photos, comments, messages and so on ("<strong>Your Things</strong>"). To make that possible, we store, process, and transmit Your Things as well as information related to it. This related information includes your <Link to='/update-profile' target='_blank'>profile information</Link> that makes it easier to collaborate and share Your Things with others, as well as things like the size of the file, the time it was uploaded, collaborators, and usage activity.
           <br /><br />
 
           <i>Usage information</i>. We collect information related to how you use the Service, including actions you take in your account (like viewing, creating and moving files or folders). We use this information to provide, improve, and promote our Service, and protect Lok users.
