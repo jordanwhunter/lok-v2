@@ -8,6 +8,9 @@ import PrivateRoute from './components/authentication/PrivateRoute';
 import ForgotPassword from './components/authentication/ForgotPassword';
 import UpdateProfile from './components/authentication/UpdateProfile';
 import Dashboard from './components/lok/Dashboard';
+import TermsOfService from './components/compliance/TermsOfService';
+import AcceptableUse from './components/compliance/AcceptableUse';
+import PrivacyPolicy from './components/compliance/PrivacyPolicy';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -27,6 +30,11 @@ function App() {
           <Route path='/signup' component={Signup} />
           <Route path='/login' component={Login} />
           <Route path='/forgot-password' component={ForgotPassword} />
+
+          {/* Compliance Routes */}
+          <Route path='/terms-of-service' component={TermsOfService} />
+          <Route path='/acceptable-use' component={AcceptableUse} />
+          <Route path='/privacy-policy' component={PrivacyPolicy} />
         </Switch>
       </AuthProvider>
     </Router>
