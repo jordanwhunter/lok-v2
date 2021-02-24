@@ -5,6 +5,7 @@ import { Form, Button, Card, Alert } from 'react-bootstrap';
 import { useAuth } from '../../contexts/AuthContext';
 import CenteredContainer from '../authentication/CenteredContainer';
 
+import LockTwoToneIcon from '@material-ui/icons/LockTwoTone';
 
 export default function Login() {
   const emailRef = useRef();
@@ -38,6 +39,10 @@ export default function Login() {
     <CenteredContainer>
       <Card>
         <Card.Body>
+          <Card.Title style={{ textAlign: 'center' }}>
+            <LockTwoToneIcon /> Lok
+            <hr />
+          </Card.Title>
           <h2 className='text-center mb-4'>Log In</h2>
           {error && <Alert variant='danger'>{error}</Alert>}
           <Form onSubmit={handleSubmit}>
