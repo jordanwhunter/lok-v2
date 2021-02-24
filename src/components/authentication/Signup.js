@@ -72,6 +72,12 @@ export default function Signup() {
                 required 
               />
             </Form.Group>
+            <Card.Text style={{
+              textAlign: 'center'
+            }}
+            >
+              I agree to Lok's <Link to='/terms-of-service' target='_blank'>terms</Link> and <Link to='privacy-policy' target='_blank'>privacy policy</Link>
+            </Card.Text>
             <Button 
               disabled={loading} 
               className='w-100' 
