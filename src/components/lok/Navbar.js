@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import LockTwoToneIcon from '@material-ui/icons/LockTwoTone';
 
-export default function NavbarComponet() {
+export default function Navbar() {
   return (
     <Navstrap 
       bg='light' 
