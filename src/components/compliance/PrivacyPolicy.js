@@ -83,111 +83,53 @@ export default function PrivacyPolicy() {
         <br />
         
         <Card.Text>
-          Stewardship of your data is critical to us and a responsibility that we embrace. We believe that your data should receive the same legal protections regardless of whether it’s stored on our Service or on your home computer’s hard drive. We’ll abide by the following Government Request Principles when receiving, scrutinizing, and responding to government requests (including national security requests) for your data:
+          Stewardship of your data is critical to us and a responsibility that we embrace. We believe that your data should receive the same legal protections regardless of whether it’s stored on our Service or on your home computer’s hard drive. We’ll abide by the following <u>Government Request Principles</u> when receiving, scrutinizing, and responding to government requests (including national security requests) for your data:
         </Card.Text>
 
         <ListGroup variant='flush'>
-          <ListGroup.Item></ListGroup.Item>
-          <ListGroup.Item></ListGroup.Item>
-          <ListGroup.Item></ListGroup.Item>
-        </ListGroup>
-        <br /><br />
-
-        
-
-        <ListGroup variant='flush'>
-          <ListGroup.Item>(a) you’re in material breach of these Terms,</ListGroup.Item>
-          <ListGroup.Item>(b) doing so would cause us legal liability or compromise our ability to provide the Service to our other users, or</ListGroup.Item>
-          <ListGroup.Item>(c) we're prohibited from doing so by law.</ListGroup.Item>
+          <ListGroup.Item>• Be transparent</ListGroup.Item>
+          <ListGroup.Item>• Fight blanket requests</ListGroup.Item>
+          <ListGroup.Item>• Protect all users, and</ListGroup.Item>
+          <ListGroup.Item>• Provide trusted services.</ListGroup.Item>
         </ListGroup>
         <br />
 
         <Card.Text>
-          <strong>Discontinuation of Service</strong>
+          <strong>How?</strong>
           <br /><br />
 
-          Due to Lok being a free service, we may decide at any time to discontinue the Service (entirely or specifically to a user) in response to unforeseen circumstances beyond our control, or to comply with a legal requirement. Lok is not responsible for data lost in any capacity due to this.
+          <i>Security</i>. We have dedicated parameters in place to keeping your information secure and testing for vulnerabilities. We continue to work on features to keep your information safe in addition to things like encryption of files at rest. We deploy automated technologies to detect abusive behavior and content that may harm our Services, you, or other users.
+          <br /><br />
+          
+          <i>User Controls</i>. You can access, amend, and delete your PERSONAL INFORMATION by logging into your Lok account and going to your <Link to='/update-profile' target='_blank'>account settings page</Link>.
           <br /><br />
 
-          <strong>Service “AS IS”</strong>
+          <i>Retention</i>. When you sign up for an account with us, we’ll retain information you store on our Service for as long as your account exists or as long as we need it to provide you the Service. 
           <br /><br />
 
-          We strive to provide a great Service, but there are certain things that we can't guarantee. TO THE FULLEST EXTENT PERMITTED BY LAW, LOK MAKES NO WARRANTIES, EITHER EXPRESS OR IMPLIED, ABOUT THE SERVICE. THE SERVICE IS PROVIDED "AS IS." WE ALSO DISCLAIM ANY WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. Some places don’t allow the disclaimers in this paragraph, so they may not apply to you.
+          <strong>Where?</strong>
           <br /><br />
 
-          <strong>Limitation of Liability</strong>
+          <i>Around the world</i>. To provide you with the Service, we may store, process, and transmit data in the United States and locations around the world—including those outside your country. Data may also be stored locally on the devices you use to access the Service.
           <br /><br />
 
-          WE DON’T EXCLUDE OR LIMIT OUR LIABILITY TO YOU WHERE IT WOULD BE ILLEGAL TO DO SO—THIS INCLUDES ANY LIABILITY FOR LOK’S FRAUD OR FRAUDULENT MISREPRESENTATION IN PROVIDING THE SERVICE. IN COUNTRIES WHERE THE FOLLOWING TYPES OF EXCLUSIONS AREN’T ALLOWED, WE'RE RESPONSIBLE TO YOU ONLY FOR LOSSES AND DAMAGES THAT ARE A REASONABLY FORESEEABLE RESULT OF OUR FAILURE TO USE REASONABLE CARE AND SKILL OR OUR BREACH OF OUR CONTRACT WITH YOU. THIS PARAGRAPH DOESN’T AFFECT CONSUMER RIGHTS THAT CAN'T BE WAIVED OR LIMITED BY ANY CONTRACT OR AGREEMENT.
+          <strong>Your Control and Access of Your Data</strong>
           <br /><br />
-          IN COUNTRIES WHERE EXCLUSIONS OR LIMITATIONS OF LIABILITY ARE ALLOWED, LOK WON’T BE LIABLE FOR:
+
+          You mostly have control over your personal data and how it’s collected, used, and shared. For example, you can:
         </Card.Text>
 
         <ListGroup variant='flush'>
-          <ListGroup.Item>i. ANY INDIRECT, SPECIAL, INCIDENTAL, PUNITIVE, EXEMPLARY, OR CONSEQUENTIAL DAMAGES, OR</ListGroup.Item>
-          <ListGroup.Item>ii. ANY LOSS OF USE, DATA, BUSINESS, OR PROFITS, REGARDLESS OF LEGAL THEORY.</ListGroup.Item>
+          <ListGroup.Item>• <i>Change or correct personal data</i>. You can manage your account and the content contained in it, as well as edit some of your personal data, through your <Link to='/update-profile' target='_blank'>account settings page</Link>.</ListGroup.Item>
+          <ListGroup.Item>• <i>Access and take your data elsewhere</i>. You can access your personal data from your Lok account and you can download a copy of Your Things in a machine readable format.</ListGroup.Item>
         </ListGroup>
         <br />
 
         <Card.Text>
-          THESE EXCLUSIONS OR LIMITATIONS WILL APPLY REGARDLESS OF WHETHER OR NOT LOK OR ANY OF ITS AFFILIATES HAS BEEN WARNED OF THE POSSIBILITY OF SUCH DAMAGES.
-
-          IF YOU USE THE SERVICE FOR ANY COMMERCIAL, BUSINESS, OR RE-SALE PURPOSE, LOK, ITS AFFILIATES, SUPPLIERS OR DISTRIBUTORS WILL HAVE NO LIABILITY TO YOU FOR ANY LOSS OF PROFIT, LOSS OF BUSINESS, BUSINESS INTERRUPTION, OR LOSS OF BUSINESS OPPORTUNITY. LOK AND ITS AFFILIATES AREN’T RESPONSIBLE FOR THE CONDUCT, WHETHER ONLINE OR OFFLINE, OF ANY USER OF THE SERVICE.
-
-          OTHER THAN FOR THE TYPES OF LIABILITY WE CANNOT LIMIT BY LAW (AS DESCRIBED IN THIS SECTION), WE LIMIT OUR LIABILITY TO YOU TO THE GREATER OF $0 USD.
+          <strong>Changes</strong>
           <br /><br />
 
-          <strong>Resolving Disputes</strong>
-          <br /><br />
-
-          As Lok is a free service that you must opt into, with no forms of advertisement or pay-to-use features, we do not entertain anything in the form of legal case filings in lieu of the Service provided. 
-          <br /><br />
-
-          <strong>IF YOU'RE A U.S. RESIDENT, YOU ALSO AGREE TO THE FOLLOWING MANDATORY ARBITRATION/MEDIATION PROVISIONS:</strong>
-        </Card.Text>
-
-        <ListGroup variant='flush'>
-          <ListGroup.Item>- There will be no private arbitration or public mediation to handle any disputes related to Lok or its Service. Lok holds no responsibility for anything, and you agree to that by using the Service.</ListGroup.Item>
-          <ListGroup.Item>- <strong>NO CLASS ACTIONS</strong>. You may not not bring a claim as a plaintiff or a class member in a class, consolidated, or representative action. Class arbitrations, class actions, private attorney general actions, and consolidation with other arbitrations aren’t allowed.</ListGroup.Item>
-        </ListGroup>
-        <br />
-
-        <Card.Text>
-          <strong>Controlling Law</strong>
-          <br /><br />
-
-          These Terms will be governed by U.S. law except for its conflicts of laws principles. However, some countries (including those in the European Union) have laws that require agreements to be governed by the local laws of the consumer's country. This paragraph doesn’t override those laws.
-          <br /><br />
-
-          <strong>Entire Agreement</strong>
-          <br /><br />
-
-          These Terms constitute the entire agreement between you and Lok with respect to the subject matter of these Terms, and supersede and replace any other prior or contemporaneous agreements, or terms and conditions applicable to the subject matter of these Terms. These Terms create no third party beneficiary rights.
-          <br /><br />
-
-          <strong>Waiver, Severability & Assignment</strong>
-          <br /><br />
-
-          Lok’s failure to enforce a provision is not a waiver of its right to do so later. If a provision is found unenforceable, the remaining provisions of the Terms will remain in full effect and an enforceable term will be substituted reflecting our intent as closely as possible. You may not assign any of your rights under these Terms, and any such attempt will be void. Lok may assign its rights to any of its affiliates or subsidiaries, or to any successor in interest of any business associated with the Services.
-          <br /><br />
-
-          <strong>Modifications</strong>
-          <br /><br />
-
-          We may revise these Terms from time to time to better reflect:
-        </Card.Text>
-
-        <ListGroup variant='flush'>
-          <ListGroup.Item>(a) changes to the law,</ListGroup.Item>
-          <ListGroup.Item>(b) new regulatory requirements, or</ListGroup.Item>
-          <ListGroup.Item>(c) improvements or enhancements made to our Service.</ListGroup.Item>
-        </ListGroup>
-        <br />
-
-        <Card.Text>
-          If an update affects your use of the Service, we still reserve the right to withhold notification from you prior to the update's effective date.
-          <br /><br />
-          If you don’t agree to the updates we make, please cancel your account. By continuing to use or access the Service after the updates come into effect, you agree to be bound by the revised Terms.
+          If we’re involved in a reorganization, merger, acquisition, or sale of our assets, your data may be transferred as part of that deal. We’ll notify you (for example, via a message to the email address associated with your account) of any such deal and outline your choices in that event.
         </Card.Text>
       </Card.Body>
     </Card>
