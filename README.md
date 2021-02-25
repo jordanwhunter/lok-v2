@@ -74,3 +74,4 @@
   For any questions, please contact me with the information below:
  
   GitHub: [@jordanwhunter](https://api.github.com/users/jordanwhunter)
+  Email: <a href = "mailto: jordanwhunter@users.noreply.github.com">Contact Developer</a>
